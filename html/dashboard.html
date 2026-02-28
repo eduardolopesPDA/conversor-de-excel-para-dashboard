@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>conversor excel para dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="app.js"></script>
+
+</head>
+
+<body>
+
+<h1>conversor de arquivos excel para dashboard</h1>
+
+<input type="file" id="upload" accept=".xlsx, .xls">
+
+<div class="cards">
+    <div class="card">
+        <h2>Total de Vendas</h2>
+        <p id="totalVendas">R$ 0</p>
+    </div>
+    <div class="card">
+        <h2>Quantidade de Registros</h2>
+        <p id="qtdRegistros">0</p>
+    </div>
+</div>
+
+<canvas id="grafico" height="100"></canvas>
+
+</body>
+</html>
