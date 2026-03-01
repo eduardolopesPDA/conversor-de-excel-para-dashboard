@@ -1,6 +1,11 @@
-let grafico;
+document.addEventListener("DOMContentLoaded", function(){
 
-document.getElementById("upload").addEventListener("change", lerArquivo);
+    document.getElementById("upload")
+        .addEventListener("change", lerArquivo);
+
+});
+
+let grafico;
 
 function lerArquivo(event){
     const file = event.target.files[0];
@@ -25,28 +30,65 @@ function gerarDashboard(dados){
         return;
     }
 
-    // Espera que sua planilha tenha colunas:
-    // "Produto" e "Valor"
+    const colunas = Object.keys(dados[0]);
+    criarSeletores(colunas, dados);
+}
+
+function criarSeletores(colunas, dados){
+
+    const container = document.getElementById("configuracao");
+
+    container.innerHTML = `
+        <h3>Configurar Dashboard</h3>
+        <label>Agrupar por:</label>
+        <select id="colunaGrupo"></select>
+
+        <label>Somar coluna:</label>
+        <select id="colunaValor"></select>
+
+        <button id="gerarBtn">Gerar</button>
+    `;
+
+    const selectGrupo = document.getElementById("colunaGrupo");
+    const selectValor = document.getElementById("colunaValor");
+
+    colunas.forEach(coluna=>{
+        selectGrupo.innerHTML += `<option value="${coluna}">${coluna}</option>`;
+        selectValor.innerHTML += `<option value="${coluna}">${coluna}</option>`;
+    });
+
+    document.getElementById("gerarBtn").addEventListener("click", ()=>{
+        processarDados(dados);
+    });
+}
+
+function processarDados(dados){
+
+    const grupo = document.getElementById("colunaGrupo").value;
+    const valor = document.getElementById("colunaValor").value;
 
     let total = 0;
-    let produtos = {};
-    
-    dados.forEach(item=>{
-        total += Number(item.Valor);
+    let agrupado = {};
 
-        if(produtos[item.Produto]){
-            produtos[item.Produto] += Number(item.Valor);
-        }else{
-            produtos[item.Produto] = Number(item.Valor);
+    dados.forEach(item=>{
+
+        const numero = Number(item[valor]);
+
+        if(!isNaN(numero)){
+            total += numero;
+
+            if(agrupado[item[grupo]]){
+                agrupado[item[grupo]] += numero;
+            }else{
+                agrupado[item[grupo]] = numero;
+            }
         }
     });
 
-    document.getElementById("totalVendas").innerText = 
+    document.getElementById("totalVendas").innerText =
         "R$ " + total.toLocaleString("pt-BR");
 
-    document.getElementById("qtdRegistros").innerText = dados.length;
-
-    criarGrafico(produtos);
+    criarGrafico(agrupado);
 }
 
 function criarGrafico(produtos){
@@ -63,7 +105,7 @@ function criarGrafico(produtos){
         data:{
             labels:labels,
             datasets:[{
-                label:"Vendas por Produto",
+                label:"Resultado",
                 data:valores
             }]
         },
