@@ -8,11 +8,6 @@ este sistema foi feito para que você consiga converter suas planilhas do excel 
 💻 Linguagens
 <p align="left"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" height="40"/> </p>
 
-JavaScript
-
-HTML5
-
-CSS3
 
 📊 Frameworks & Bibliotecas
 <p align="left"> <img src="https://www.chartjs.org/img/chartjs-logo.svg" width="40" height="40"/> <img src="https://sheetjs.com/logo.png" width="40" height="40"/> </p>
