@@ -1,7 +1,15 @@
+alert("js esta carregado!")
 document.addEventListener("DOMContentLoaded", function(){
+    console.log("dom está carregado")
 
     document.getElementById("upload")
-        .addEventListener("change", lerArquivo);
+        .addEventListener("change", function(e){
+            console.log("arquivo selecionado")
+        lerArquivo(e);
+        });
+        
+
+  
 
 });
 
@@ -32,6 +40,7 @@ function lerArquivo(event){
 
 //função para detectar cabeçalho
 function detectarCabecalho(dados){
+    console.log("Linha escolhida como cabeçalho:", linhaCabecalhoIndex);
 
     let linhaCabecalhoIndex = 0;
 
@@ -63,6 +72,7 @@ function detectarCabecalho(dados){
 }
 
 function gerarDashboard(dados){
+    console.log("Dados recebidos:", dados);
 
     if(!dados.length){
         alert("Planilha vazia!");
