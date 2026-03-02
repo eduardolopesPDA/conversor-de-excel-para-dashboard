@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 let grafico;
 
+//modificando a função de ler arquivo para que ela possa identificar a linha do cabeçalho e "aceitar" linhas em branco ou vazias
 function lerArquivo(event){
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -15,9 +16,15 @@ function lerArquivo(event){
         const data = new Uint8Array(e.target.result);
         const workbook = XLSX.read(data, {type:"array"});
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
-        const json = XLSX.utils.sheet_to_json(sheet);
 
-        gerarDashboard(json);
+        const dadosBrutos = XLSX.utils.sheet_to_json(sheet, {
+            header: 1,      // retorna como matriz
+            defval: "",     // para "aceitar" linhas em branco
+            blankrows: false
+        });
+
+        const dadosTratados = detectarCabecalho(dadosBrutos);
+        gerarDashboard(dadosTratados);
     }
 
     reader.readAsArrayBuffer(file);
