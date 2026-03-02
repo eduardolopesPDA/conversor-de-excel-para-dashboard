@@ -1,7 +1,7 @@
 <h1>conversor de planilhas</h1>
 este sistema foi feito para que você consiga converter suas planilhas do excel para um DashBoard!!
 
-<h2>como este sistema funciona?</h2>
+<h2>como este sistema funciona 🧐</h2>
 <p>este sistema é simples e intuitivo, mas para ficar melhor de entender vou fazer um passo a passo para explicar como ele funciona!</p>
 
 <h1>tecnologias utilizadas</h1>
