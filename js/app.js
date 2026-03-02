@@ -30,6 +30,38 @@ function lerArquivo(event){
     reader.readAsArrayBuffer(file);
 }
 
+//função para detectar cabeçalho
+function detectarCabecalho(dados){
+
+    let linhaCabecalhoIndex = 0;
+
+    // tenta achar primeira linha com mais de 2 colunas preenchidas
+    for(let i = 0; i < dados.length; i++){
+        const preenchidas = dados[i].filter(cel => cel !== "").length;
+
+        if(preenchidas > 2){
+            linhaCabecalhoIndex = i;
+            break;
+        }
+    }
+
+    const cabecalho = dados[linhaCabecalhoIndex];
+    const resultado = [];
+
+    for(let i = linhaCabecalhoIndex + 1; i < dados.length; i++){
+
+        const obj = {};
+
+        cabecalho.forEach((coluna, index)=>{
+            obj[coluna || `Coluna_${index}`] = dados[i][index];
+        });
+
+        resultado.push(obj);
+    }
+
+    return resultado;
+}
+
 function gerarDashboard(dados){
 
     if(!dados.length){
@@ -78,8 +110,8 @@ function processarDados(dados){
     let agrupado = {};
 
     dados.forEach(item=>{
-
-        const numero = Number(item[valor]);
+         
+        const numero = limparNumero(item[valor]); //esta mudança vai servir para que o sistema aceite caracteres especiais dentro das planilhas
 
         if(!isNaN(numero)){
             total += numero;
@@ -97,6 +129,28 @@ function processarDados(dados){
 
     criarGrafico(agrupado);
 }
+
+//função para aceitar caracteres especiais que costumam aparecer no excel 
+function limparNumero(valor){
+
+    if(valor === null || valor === undefined) return 0;
+
+    return Number(
+        String(valor)
+            .replace("R$", "")
+            .replace("%", "")
+            .replace(/\./g, "")
+            .replace(",", ".")
+            .trim()
+    );
+} //agora o sistema aceita planilhas que contenham "%", ",", ".", "R$"
+
+
+//fiz para o código mostrar só colunas numéricas no select da soma
+const colunasNumericas = colunas.filter(coluna=>{
+    return dados.some(item => !isNaN(limparNumero(item[coluna])));
+});
+
 
 function criarGrafico(produtos){
 
