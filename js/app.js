@@ -40,7 +40,7 @@ function lerArquivo(event){
 
 //função para detectar cabeçalho
 function detectarCabecalho(dados){
-    console.log("Linha escolhida como cabeçalho:", linhaCabecalhoIndex);
+    
 
     let linhaCabecalhoIndex = 0;
 
