@@ -1,7 +1,7 @@
 <h1>conversor de planilhas</h1>
 este sistema foi feito para que você consiga converter suas planilhas do excel para um DashBoard!!
 
-
+<h1>tecnologias utilizadas</h1>
 💻 Linguagens
 <p align="left"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" height="40"/> </p>
 
