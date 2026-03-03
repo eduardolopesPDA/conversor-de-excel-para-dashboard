@@ -27,8 +27,8 @@ function lerArquivo(event){
 
         const dadosBrutos = XLSX.utils.sheet_to_json(sheet, {
             header: 1,      // retorna como matriz
-            defval: "",     // para "aceitar" linhas em branco
-            blankrows: false
+            defval: "",     // para preencher celulas vazias no arquivo com ""
+            blankrows: false // para aceitar linhas em branco
         });
 
         const dadosTratados = detectarCabecalho(dadosBrutos);
