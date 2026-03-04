@@ -1,4 +1,3 @@
-alert("js esta carregado!")
 document.addEventListener("DOMContentLoaded", function(){
     console.log("dom está carregado")
 
