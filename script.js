@@ -1,3 +1,16 @@
+// o usuario escolhe o titulo do dashboard
+function definirTitulo() {
+    let tituloDigitado = document.getElementById("inputTitulo").value;
+    let titulo = document.getElementById("tituloDashboard");
+
+    if (tituloDigitado.trim() !== "") {
+        titulo.textContent = tituloDigitado;
+    } else {
+        alert("Digite um nome válido para o dashboard!");
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", function(){
     console.log("dom está carregado")
 
@@ -7,9 +20,6 @@ document.addEventListener("DOMContentLoaded", function(){
         lerArquivo(e);
         });
         
-
-  
-
 });
 
 let grafico;
