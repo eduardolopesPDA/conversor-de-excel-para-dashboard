@@ -7,8 +7,8 @@
 
 body {
 font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-background: #421da8;
-background: linear-gradient(90deg, rgba(66, 29, 168, 1) 0%, rgba(31, 128, 71, 1) 69%, rgba(237, 221, 83, 1) 100%);
+background: #20006b;
+background: linear-gradient(90deg, rgba(32, 0, 107, 1) 100%, rgba(156, 8, 8, 1) 54%, rgba(237, 221, 83, 1) 100%);
 color: var(--text);
 padding: 30px;
 margin: 0;
