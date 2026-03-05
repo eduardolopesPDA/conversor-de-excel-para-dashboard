@@ -23,12 +23,13 @@
 
 <div id="configuracao"></div>
 
-<div class="cards">
-    <div class="card">
-        <h2>Total</h2>
-        <p id="totalVendas">R$ 0</p>
-    </div>
+<div class="card">
+    <h2 id="tituloTotal">Total</h2>
+    <p id="valorTotal">R$ 0,00</p>
 </div>
+
+<input type="text" id="inputTotal" placeholder="Novo nome para Total">
+<button onclick="alterarTotal()">confirmar</button>
 
 <canvas id="grafico" height="100"></canvas>
 

@@ -10,6 +10,18 @@ function definirTitulo() {
     }
 }
 
+// o usuario escolhe o titulo do "total"
+function alterarTotal() {
+    let novoNome = document.getElementById("inputTotal").value;
+    let titulo = document.getElementById("tituloTotal");
+
+    if (novoNome.trim() !== "") {
+        titulo.textContent = novoNome;
+    } else {
+        alert("Digite um nome válido!");
+    }
+}
+
 
 document.addEventListener("DOMContentLoaded", function(){
     console.log("dom está carregado")
