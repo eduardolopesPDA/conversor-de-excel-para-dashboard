@@ -7,7 +7,7 @@
 
 body {
 font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-background-color: var(--bg);
+background-color: var(--bg); 
 color: var(--text);
 padding: 30px;
 margin: 0;
