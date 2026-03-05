@@ -17,19 +17,19 @@
     <input type="text" id="inputTitulo" placeholder="Escolha um titulo novo">
     <button onclick="definirTitulo()">Confirmar</button>
 </div>
+
 <h1 id="tituloDashboard">Meu Dashboard</h1>
 
 <input type="file" id="upload" accept=".xlsx, .xls">
 
 <div id="configuracao"></div>
 
-<div class="card">
-    <h2 id="tituloTotal">Total</h2>
-    <p id="valorTotal">R$ 0,00</p>
+<div class="cards">
+    <div class="card">
+        <h2>Total</h2>
+        <p id="totalVendas">R$ 0</p>
+    </div>
 </div>
-
-<input type="text" id="inputTotal" placeholder="Novo nome para Total">
-<button onclick="alterarTotal()">confirmar</button>
 
 <canvas id="grafico" height="100"></canvas>
 
