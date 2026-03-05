@@ -168,10 +168,9 @@ function limparNumero(valor){
 
 
 //fiz para o código mostrar só colunas numéricas no select da soma
-const colunasNumericas = colunas.filter(coluna =>{
+const colunasNumericas = colunas.filter(coluna=>{
     return dados.some(item => !isNaN(limparNumero(item[coluna])));
 });
-
 
 function criarGrafico(produtos){
 
